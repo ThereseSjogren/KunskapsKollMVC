@@ -1,0 +1,27 @@
+﻿@model List<KunskapskollMVCLabb.Models.AdressBok>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "result"
+    };
+}
+<h2>Lista AdressBoken</h2>
+
+    @foreach (var adress in Model)
+    {
+        <p>
+            @adress.Name
+            @adress.Adress
+            @adress.PhoneNumber
+            @adress.UpdatedDate
+        </p>
+    }
+
+
