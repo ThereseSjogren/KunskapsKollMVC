@@ -17,7 +17,7 @@ namespace KunskapskollMVCLabb.Controllers
         public ActionResult Create(AdressBok adressbok)
         {
             adressBok.Add(adressbok);
-            return PartialView(adressbok);
+            return View(adressbok);
         }
     }
 }
