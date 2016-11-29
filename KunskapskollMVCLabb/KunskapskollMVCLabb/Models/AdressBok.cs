@@ -8,7 +8,7 @@ namespace KunskapskollMVCLabb.Models
     public class AdressBok
     {
         
-        public Guid AdressBokID { get; set; }
+        public Guid ID { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Adress { get; set; }

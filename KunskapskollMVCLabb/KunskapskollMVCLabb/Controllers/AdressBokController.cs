@@ -18,6 +18,7 @@ namespace KunskapskollMVCLabb.Controllers
         [HttpPost]
         public ActionResult Create(AdressBok adressbok)
         {
+            adressbok.ID = Guid.NewGuid();
             adressbok.UpdatedDate = DateTime.Now;
             adressBok.Add(adressbok);
             return PartialView("List",adressBok);
@@ -29,16 +30,23 @@ namespace KunskapskollMVCLabb.Controllers
         [HttpPost]
         public ActionResult Delete(Guid id)
         {
-            var delete = adressBok.First(x => x.AdressBokID == id);
+            var delete = adressBok.First(x => x.ID == id);
             adressBok.Remove(delete);
             return PartialView("List", adressBok);
         }
-        [HttpPost]
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(AdressBok adressbok)
         {
-            var edit = adressBok.Find(x => x.AdressBokID == id);
-            adressBok.Add(edit);
-            return PartialView("Edit",edit);
+            var edit = adressBok.Find(x => x.ID == adressbok.ID);
+            return PartialView("Edit", edit);
+        }
+        [HttpPost]
+        public ActionResult Edit(AdressBok adressbok,FormCollection formcollection)
+        {
+            var edit = adressBok.Find(x => x.ID == adressbok.ID);
+            edit.Name = adressbok.Name;
+            edit.Adress = adressbok.Adress;
+            edit.PhoneNumber = adressbok.PhoneNumber;
+            return PartialView("List", adressBok);
         }
     }
 }
