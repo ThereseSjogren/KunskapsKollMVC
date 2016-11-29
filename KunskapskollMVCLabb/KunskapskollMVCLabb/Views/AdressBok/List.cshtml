@@ -17,6 +17,7 @@
         @item.PhoneNumber
         @item.UpdatedDate
         @Ajax.ActionLink($"Delete{ item.Name}", "Delete",new { id=item.AdressBokID}, ajaxOptions)
+        @Ajax.ActionLink($"Edit{item.Name}", "Edit", new { id=item.AdressBokID},ajaxOptions)
     </p>
 
 }

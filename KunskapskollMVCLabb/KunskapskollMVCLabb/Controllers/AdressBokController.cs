@@ -33,5 +33,12 @@ namespace KunskapskollMVCLabb.Controllers
             adressBok.Remove(delete);
             return PartialView("List", adressBok);
         }
+        [HttpPost]
+        public ActionResult Edit(Guid id)
+        {
+            var edit = adressBok.Find(x => x.AdressBokID == id);
+            adressBok.Add(edit);
+            return PartialView("Edit",edit);
+        }
     }
 }
